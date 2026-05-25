@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -z "$1" ] || [ -z "$2" ]; then
     echo "Error: Two arguments required."
@@ -16,6 +16,6 @@ fi
 
 file_count=$(find "$filesdir" -type f | wc -l)
 
-match_count=$(grep -r --include="*" -l "" "$filesdir" | xargs grep -s "$searchstr" 2>/dev/null | wc -l)
+match_count=$(grep -r "$searchstr" "$filesdir" 2>/dev/null | wc -l)
 
 echo "The number of files are ${file_count} and the number of matching lines are ${match_count}"
